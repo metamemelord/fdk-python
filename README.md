@@ -155,7 +155,7 @@ pytest -v -s --tb=long func.py
 
 ```bash
 ========================================================================================= test session starts ==========================================================================================
-platform darwin -- Python 3.7.1, pytest-4.0.1, py-1.7.0, pluggy-0.8.0 -- /python/bin/python3
+platform darwin -- Python 3.7.10, pytest-4.0.1, py-1.7.0, pluggy-0.8.0 -- /python/bin/python3
 cachedir: .pytest_cache
 rootdir: /Users/denismakogon/go/src/github.com/fnproject/test, inifile:
 plugins: cov-2.4.0, asyncio-0.9.0, aiohttp-0.3.0
@@ -182,7 +182,7 @@ pytest -v -s --tb=long --cov=func func.py
 ```bash
 pytest -v -s --tb=long --cov=func func.py
 ========================================================================================= test session starts ==========================================================================================
-platform darwin -- Python 3.7.1, pytest-4.0.1, py-1.7.0, pluggy-0.8.0 -- /python/bin/python3
+platform darwin -- Python 3.7.10, pytest-4.0.1, py-1.7.0, pluggy-0.8.0 -- /python/bin/python3
 cachedir: .pytest_cache
 rootdir: /Users/denismakogon/go/src/github.com/fnproject/test, inifile:
 plugins: cov-2.4.0, asyncio-0.9.0, aiohttp-0.3.0
@@ -194,7 +194,7 @@ func.py::test_parse_request_without_data 2018-12-10 15:43:10,339 - asyncio - DEB
 {'Fn-Http-Status': '200', 'Content-Type': 'application/json'}
 PASSED
 
----------- coverage: platform darwin, python 3.7.1-final-0 -----------
+---------- coverage: platform darwin, python 3.7.10-final-0 -----------
 Name      Stmts   Miss  Cover
 -----------------------------
 func.py      19      1    95%
@@ -321,12 +321,12 @@ curl -v -X POST localhost:5001 -d '{"name":"denis"}'
 
 First of all create a test function:
 ```bash
-fn init --runtime python3.8.5 test-function
+fn init --runtime python3.8.8 test-function
 ```
 
 Create a Dockerfile in a function's folder:
 ```dockerfile
-FROM fnproject/python:3.8.5-dev as build-stage
+FROM fnproject/python:3.8.8-dev as build-stage
 
 ADD . /function
 WORKDIR /function
@@ -335,7 +335,7 @@ RUN pip3 install --target /python/  --no-cache --no-cache-dir fdk-test-py3-none-
 
 RUN rm -fr ~/.cache/pip /tmp* requirements.txt func.yaml Dockerfile .venv
 
-FROM fnproject/python:3.8.5
+FROM fnproject/python:3.8.8
 
 COPY --from=build-stage /function /function
 COPY --from=build-stage /python /python
@@ -413,7 +413,7 @@ except ValueError as ex:
 ### Dockerfile
 If you've been using CLI to build function without modifying runtime in `func.yaml` to `docker` 
 instead of `python` then the only thing you need is to update the CLI to the latest version and 
-pin your Python runtime version to `python`, `python3.7.1`, or `python3.8.5`.
+pin your Python runtime version to `python`, `python3.7.10`, or `python3.8.8`.
 
 If you've been using custom multi-stage Dockerfile (derived from what Fn CLI generates) 
 the only thing that is necessary to change is an `ENTRYPOINT` from:

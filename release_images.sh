@@ -23,10 +23,10 @@ runtime36="3.6"
 docker push ${user}/${image}:${runtime36}
 docker push ${user}/${image}:${runtime36}-dev
 
-runtime371="3.7.1"
-docker push ${user}/${image}:${runtime371}
-docker push ${user}/${image}:${runtime371}-dev
+runtime3710="3.7.10"
+docker push ${user}/${image}:${runtime3710}
+docker push ${user}/${image}:${runtime3710}-dev
 
-runtime385="3.8.5"
-docker push ${user}/${image}:${runtime385}
-docker push ${user}/${image}:${runtime385}-dev
+runtime388="3.8.8"
+docker push ${user}/${image}:${runtime388}
+docker push ${user}/${image}:${runtime388}-dev
